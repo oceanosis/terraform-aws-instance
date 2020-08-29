@@ -50,10 +50,6 @@ variable "key_name" {}
 variable "ami_id" {
 }
 
-variable "PATH_TO_PRIVATE_KEY" {}
-
-variable "PATH_TO_PUBLIC_KEY" {}
-
 variable "script_location" {
   default = "/bin/bash"
 }
