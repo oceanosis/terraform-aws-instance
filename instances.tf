@@ -20,5 +20,7 @@ resource "aws_instance" "instance" {
   user_data = file(var.script_location)
   tags = {
     Name = format("%s-%d", var.instance_name,count.index)
+    App = var.tag.app
+    Tier = var.tag.tier
   }
 }
