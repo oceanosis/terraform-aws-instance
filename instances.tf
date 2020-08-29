@@ -1,22 +1,7 @@
 
-data "aws_ami" "latest-ubuntu" {
-  most_recent = true
-  owners = ["099720109477"] # Canonical
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
-
 resource "aws_instance" "instance" {
   count = var.instance_count
-  ami                  = data.aws_ami.latest-ubuntu.id
+  ami                  = var.ami_id
   instance_type        = var.instance_type
   key_name             = var.key_name
   vpc_security_group_ids = [ var.security_group_ids ]
