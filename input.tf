@@ -19,17 +19,11 @@ variable "availability_zone_names" {
   default = ["eu-west-2a","eu-west-2b","eu-west-2c"]
 }
 
-variable "master_instance_ips" {
-  default     = ["10.0.4.11","10.0.4.12","10.0.4.13"]
-}
-
-variable "worker_instance_ips" {
-  default     = ["10.0.4.101","10.0.4.102","10.0.4.103"]
-}
-
 variable "instance_disk_size" {
   default = 20
 }
+
+variable "instance_ip" {}
 
 variable "instance_name" {}
 
