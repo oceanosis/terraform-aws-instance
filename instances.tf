@@ -32,7 +32,7 @@ resource "aws_instance" "instance" {
     volume_type = "gp2"
     volume_size = var.instance_disk_size
   }
-  user_data = file(script_location)
+  user_data = file(var.script_location)
   tags = {
     Name = format("%d-%d", var.instance_name,var.master_instances[ count.index])
   }
