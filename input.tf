@@ -23,8 +23,6 @@ variable "instance_disk_size" {
   default = 20
 }
 
-variable "instance_ip" {}
-
 variable "instance_name" {}
 
 variable "subnet_ids" {}
