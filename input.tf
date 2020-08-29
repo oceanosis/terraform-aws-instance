@@ -11,20 +11,12 @@ variable "PATH_TO_PUBLIC_KEY" {
 variable "ami_id" {
   default = ""
 }
-variable "master_instance_type" {
+variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "worker_instance_type" {
-  default = "t2.micro"
-}
-
-variable "master_instances" {
-  default     = [1]
-}
-
-variable "worker_instances" {
-  default     = [1]
+variable "instance_count" {
+  default     = 1
 }
 
 variable "az" {
@@ -61,3 +53,4 @@ variable "instance_name" {}
 variable "subnet_ids" {}
 
 variable "security_group_ids" {}
+

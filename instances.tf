@@ -15,9 +15,9 @@ data "aws_ami" "latest-ubuntu" {
 }
 
 resource "aws_instance" "instance" {
-  count = length(var.master_instances)
+  count = length(var.instance_count)
   ami                  = data.aws_ami.latest-ubuntu.id
-  instance_type        = var.master_instance_type
+  instance_type        = var.instance_type
   key_name             = aws_key_pair.mykeypair.key_name
   vpc_security_group_ids = [ var.security_group_ids ]
   subnet_id = var.subnet_ids[ count.index]
@@ -34,6 +34,6 @@ resource "aws_instance" "instance" {
   }
   user_data = file(var.script_location)
   tags = {
-    Name = format("%d-%d", var.instance_name,var.master_instances[ count.index])
+    Name = format("%d-%d", var.instance_name,count.index)
   }
 }
