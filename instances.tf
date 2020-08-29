@@ -15,7 +15,7 @@ data "aws_ami" "latest-ubuntu" {
 }
 
 resource "aws_instance" "instance" {
-  count = length(var.instance_count)
+  count = var.instance_count
   ami                  = data.aws_ami.latest-ubuntu.id
   instance_type        = var.instance_type
   key_name             = var.key_name
