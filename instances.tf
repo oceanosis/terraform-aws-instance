@@ -20,7 +20,7 @@ resource "aws_instance" "instance" {
   instance_type        = var.instance_type
   key_name             = var.key_name
   vpc_security_group_ids = [ var.security_group_ids ]
-  subnet_id = var.subnet_ids[ count.index]
+  subnet_id = var.subnet_ids
   private_ip = var.master_instance_ips[ count.index]
   root_block_device {
     volume_type = "gp2"
