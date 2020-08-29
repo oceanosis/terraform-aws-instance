@@ -18,7 +18,7 @@ resource "aws_instance" "instance" {
   count = length(var.instance_count)
   ami                  = data.aws_ami.latest-ubuntu.id
   instance_type        = var.instance_type
-  key_name             = aws_key_pair.mykeypair.key_name
+  key_name             = var.key_name
   vpc_security_group_ids = [ var.security_group_ids ]
   subnet_id = var.subnet_ids[ count.index]
   private_ip = var.master_instance_ips[ count.index]
