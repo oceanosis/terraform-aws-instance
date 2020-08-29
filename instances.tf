@@ -34,6 +34,6 @@ resource "aws_instance" "instance" {
   }
   user_data = file(var.script_location)
   tags = {
-    Name = format("%d-%d", var.instance_name,count.index)
+    Name = format("%s-%d", var.instance_name,count.index)
   }
 }
