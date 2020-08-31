@@ -37,6 +37,11 @@ variable "tag" {
   }
 }
 
+variable "private_ip" {
+  type    = list(string)
+  default = []
+}
+
 variable "key_name" {}
 
 variable "ami_id" {
