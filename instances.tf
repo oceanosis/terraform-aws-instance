@@ -5,8 +5,8 @@ resource "aws_instance" "instance" {
   instance_type        = var.instance_type
   key_name             = var.key_name
   vpc_security_group_ids = [ var.security_group_ids ]
-  subnet_id = tolist(var.subnet_ids)[ count.index ]
-  private_ip = var.private_ip[ count.index ]
+  subnet_id = var.subnet_ids[ count.index ]
+  private_ip = var.private_ips[ count.index ]
   root_block_device {
     volume_type = "gp2"
     volume_size = var.instance_disk_size

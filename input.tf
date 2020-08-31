@@ -25,8 +25,6 @@ variable "instance_disk_size" {
 
 variable "instance_name" {}
 
-variable "subnet_ids" {}
-
 variable "security_group_ids" {}
 
 variable "tag" {
@@ -37,7 +35,12 @@ variable "tag" {
   }
 }
 
-variable "private_ip" {
+variable "subnet_ids" {
+  type    = list(string)
+  default = []
+}
+
+variable "private_ips" {
   type    = list(string)
   default = []
 }
